@@ -8,6 +8,7 @@ const { paymentSuccessEmail } = require("../mail/templates/paymentSuccessEmail")
 const crypto = require("crypto");
 const CourseProgress = require("../models/CourseProgress")
 
+
 //initiate the razorpay order
 exports.capturePayment = async(req, res) => {
 
@@ -171,6 +172,10 @@ exports.sendPaymentSuccessEmail = async(req, res) => {
         return res.status(500).json({success:false, message:"Could not send email"})
     }
 }
+
+
+
+
 
 
 

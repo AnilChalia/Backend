@@ -11,7 +11,7 @@ const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const {cloudinaryConnect } = require("./config/cloudinary");
 const fileUpload = require("express-fileupload");
-
+const purchaseRoutes = require("./routes/purchaseRoute");
 
 dotenv.config();
 const PORT = process.env.PORT || 8000;
@@ -43,6 +43,8 @@ app.use("/api/v1/profile", profileRoutes);
 app.use("/api/v1/course", courseRoutes);
 app.use("/api/v1/payment", paymentRoutes);
 app.use("/api/v1/reach", contactUsRoute);
+app.use("/api/v1/purchase", purchaseRoutes);
+
 
 //def route
 
