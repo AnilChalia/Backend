@@ -35,7 +35,7 @@ exports.createCategory = async (req, res) => {
 
 exports.showAllCategories = async (req, res) => {
 	try {
-        console.log("INSIDE SHOW ALL CATEGORIES");
+    console.log("INSIDE SHOW ALL CATEGORIES");
 		const allCategorys = await Category.find({});
 		res.status(200).json({
 			success: true,
@@ -146,6 +146,8 @@ exports.categoryPageDetails = async (req, res) => {
       });
     }
 
+
+
     // 2. Get published courses for the selected category
     const selectedCategoryCourses = await Course.find({
       category: categoryId,
@@ -154,12 +156,12 @@ exports.categoryPageDetails = async (req, res) => {
       .populate("instructor")
       .populate("ratingAndReviews");
 
-    if (selectedCategoryCourses.length === 0) {
-      return res.status(404).json({
-        success: false,
-        message: "No published courses found for this category",
-      });
-    }
+    // if (selectedCategoryCourses.length === 0) {
+    //   return res.status(404).json({
+    //     success: false,
+    //     message: "No published courses found for this category",
+    //   });
+    // }
 
     // 3. Get a different random category and its courses
     const otherCategories = await Category.find({ _id: { $ne: categoryId } });
