@@ -23,8 +23,7 @@ app.use(express.json());
 app.use(cookieParser());
 const allowedOrigins = [
   "http://localhost:3000",
-  "https://iidmd.in",
-  "https://www.iidmd.in", 
+  "https://frontend-sepia-eta-84.vercel.app", 
 ];
 app.use(
   cors({
